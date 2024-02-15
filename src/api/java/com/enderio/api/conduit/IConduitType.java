@@ -39,7 +39,7 @@ public interface IConduitType<T extends IExtendedConduitData<T>> {
 
     IConduitTicker getTicker();
 
-    @UseOnly(LogicalSide.CLIENT)
+    
     IClientConduitData<T> getClientData();
     IConduitMenuData getMenuData();
 

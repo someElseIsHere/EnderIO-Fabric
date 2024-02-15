@@ -1,13 +1,11 @@
 package com.enderio.api.capability;
 
-import com.enderio.api.UseOnly;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.fml.LogicalSide;
-import net.minecraftforge.server.ServerLifecycleHooks;
+import net.pseudoforge.server.ServerLifecycleHooks;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -41,7 +39,6 @@ public record CoordinateSelection(ResourceLocation level, BlockPos pos) {
      * @return the level of this Selection or null if no level is found
      */
     @Nullable
-    @UseOnly(LogicalSide.SERVER)
     public Level getLevelInstance() {
         return ServerLifecycleHooks.getCurrentServer().getLevel(ResourceKey.create(Registries.DIMENSION, level()));
     }

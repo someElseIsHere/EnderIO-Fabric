@@ -726,7 +726,7 @@ public abstract class MachineBlockEntity extends EnderBlockEntity implements Men
         return pPlayer.canReach(this.worldPosition, 1.5);
     }
 
-    @UseOnly(LogicalSide.SERVER)
+    
     @Override
     public InteractionResult onWrenched(@Nullable Player player, @Nullable Direction side) {
         if (player != null && level != null && player.isSecondaryUseActive() && level instanceof ServerLevel serverLevel) {//aka break block

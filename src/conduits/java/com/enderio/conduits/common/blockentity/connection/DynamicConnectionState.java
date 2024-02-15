@@ -15,7 +15,7 @@ import net.minecraftforge.fml.LogicalSide;
 import java.util.HashMap;
 import java.util.Map;
 
-public record DynamicConnectionState(boolean isInsert, ColorControl insert, boolean isExtract, ColorControl extract, RedstoneControl control, ColorControl redstoneChannel, @UseOnly(LogicalSide.SERVER) ItemStack filterInsert, @UseOnly(LogicalSide.SERVER) ItemStack filterExtract, @UseOnly(LogicalSide.SERVER) ItemStack upgradeExtract) implements IConnectionState {
+public record DynamicConnectionState(boolean isInsert, ColorControl insert, boolean isExtract, ColorControl extract, RedstoneControl control, ColorControl redstoneChannel,  ItemStack filterInsert,  ItemStack filterExtract,  ItemStack upgradeExtract) implements IConnectionState {
 
     public static DynamicConnectionState defaultConnection(Level level, BlockPos pos, Direction direction, IConduitType<?> type) {
         IConduitType.ConduitConnectionData defaultConnection = type.getDefaultConnection(level, pos, direction);

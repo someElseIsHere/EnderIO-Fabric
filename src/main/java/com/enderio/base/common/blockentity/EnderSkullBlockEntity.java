@@ -16,17 +16,17 @@ public class EnderSkullBlockEntity extends BlockEntity {
         super(EIOBlockEntities.ENDER_SKULL.get(), pos, blockState);
     }
 
-    @UseOnly(LogicalSide.CLIENT)
+    
     public float getAnimation(float partialTick) {
         return animationticks;
     }
 
-    @UseOnly(LogicalSide.CLIENT)
+    
     public void setAnimation(float ticks) {
         animationticks = ticks;
     }
 
-    @UseOnly(LogicalSide.CLIENT)
+    
     public static void animation(Level level, BlockPos blockPos, BlockState state, EnderSkullBlockEntity enderSkull) {
         if (enderSkull.animationticks > 0) {
             enderSkull.animationticks--;

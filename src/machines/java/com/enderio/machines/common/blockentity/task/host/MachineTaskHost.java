@@ -24,7 +24,7 @@ public abstract class MachineTaskHost {
     private CompoundTag pendingTask;
     private boolean hasLoaded;
 
-    @UseOnly(LogicalSide.CLIENT)
+    
     private float clientTaskProgress;
 
     private final Supplier<Level> levelSupplier;

@@ -54,7 +54,7 @@ public class SimpleConduitType<T extends IExtendedConduitData<T>> implements ICo
     }
 
     @Override
-    @UseOnly(LogicalSide.CLIENT)
+    
     public IClientConduitData<T> getClientData() {
         return clientConduitData;
     }

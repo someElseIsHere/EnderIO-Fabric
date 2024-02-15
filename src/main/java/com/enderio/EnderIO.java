@@ -39,6 +39,7 @@ import com.enderio.base.data.tags.EIOItemTagsProvider;
 import com.enderio.core.EnderCore;
 import com.enderio.core.common.network.CoreNetwork;
 import com.tterrag.registrate.Registrate;
+import net.fabricmc.api.ModInitializer;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
@@ -49,7 +50,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.ForgeAdvancementProvider;
-import net.minecraftforge.common.util.Lazy;
+import net.pseudoforge.common.util.Lazy;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -57,7 +58,7 @@ import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.loading.FMLPaths;
+import net.pseudoforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.MissingMappingsEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -68,8 +69,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-@Mod(EnderIO.MODID)
-public class EnderIO {
+public class EnderIO implements ModInitializer {
     // The Mod ID. This is stored in EnderCore as it's the furthest source away but it ensures that it is constant across all source sets.
     public static final String MODID = EnderCore.MODID;
 
@@ -85,7 +85,10 @@ public class EnderIO {
         return REGISTRATE.get();
     }
 
-    public EnderIO() {
+
+
+    @Override
+    public void onInitialize() {
         // Ensure the enderio config subdirectory is present.
         try {
             Files.createDirectories(FMLPaths.CONFIGDIR.get().resolve(MODID));
@@ -127,9 +130,6 @@ public class EnderIO {
 
         // Decor
         EIONetwork.register();
-
-        // Remap
-        MinecraftForge.EVENT_BUS.addListener(EnderIO::missingMappings);
     }
 
     public void onGatherData(GatherDataEvent event) {
@@ -159,18 +159,5 @@ public class EnderIO {
             List.of(new LootTableProvider.SubProviderEntry(FireCraftingLootProvider::new, LootContextParamSets.EMPTY),
                 new LootTableProvider.SubProviderEntry(ChestLootProvider::new, LootContextParamSets.CHEST))));
         generator.addProvider(true, provider);
-    }
-
-    //TODO Remove later on when during beta/release.
-    public static void missingMappings(MissingMappingsEvent event) {
-        event.getMappings(Registries.ENCHANTMENT, EnderIO.MODID).forEach(mapping -> {
-            if (mapping.getKey().equals(EnderIO.loc("withering_blade"))) {
-                mapping.remap(EIOEnchantments.WITHERING.get());
-            } else if (mapping.getKey().equals(EnderIO.loc("withering_arrow"))) {
-                mapping.remap(EIOEnchantments.WITHERING.get());
-            } else if (mapping.getKey().equals(EnderIO.loc("withering_bold"))) {
-                mapping.remap(EIOEnchantments.WITHERING.get());
-            }
-        });
     }
 }

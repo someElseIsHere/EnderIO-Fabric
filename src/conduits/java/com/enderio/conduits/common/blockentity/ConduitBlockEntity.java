@@ -63,7 +63,7 @@ public class ConduitBlockEntity extends EnderBlockEntity {
     private final ConduitShape shape = new ConduitShape();
 
     private final ConduitBundle bundle;
-    @UseOnly(LogicalSide.CLIENT) private ConduitBundle clientBundle;
+     private ConduitBundle clientBundle;
 
     private UpdateState checkConnection = UpdateState.NONE;
 
@@ -91,7 +91,7 @@ public class ConduitBlockEntity extends EnderBlockEntity {
     /**
      * Handle a connection state update from the client.
      */
-    @UseOnly(LogicalSide.SERVER)
+    
     public void handleConnectionStateUpdate(Direction direction, IConduitType<?> conduitType, DynamicConnectionState connectionState) {
         var connection = bundle.getConnection(direction);
 
@@ -105,7 +105,7 @@ public class ConduitBlockEntity extends EnderBlockEntity {
         updateConnectionToData(conduitType);
     }
 
-    @UseOnly(LogicalSide.SERVER)
+    
     public void handleExtendedDataUpdate(IConduitType<?> conduitType, CompoundTag compoundTag) {
         getBundle().getNodeFor(conduitType).getExtendedConduitData().deserializeNBT(compoundTag);
     }

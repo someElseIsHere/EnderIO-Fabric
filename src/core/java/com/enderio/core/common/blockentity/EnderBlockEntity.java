@@ -159,7 +159,7 @@ public class EnderBlockEntity extends BlockEntity {
     /**
      * Fire this when you change the value of a {@link NetworkDataSlot} on the client side.
      */
-    @UseOnly(LogicalSide.CLIENT)
+    
     public <T> void clientUpdateSlot(@Nullable NetworkDataSlot<T> slot, T value) {
         if (slot == null) {
             return;
@@ -177,7 +177,7 @@ public class EnderBlockEntity extends BlockEntity {
     /**
      * Sync the BlockEntity to all tracking players. Don't call this if you don't know what you do
      */
-    @UseOnly(LogicalSide.SERVER)
+    
     public void sync() {
         var syncData = createBufferSlotUpdate();
         if (syncData != null) {
@@ -185,7 +185,7 @@ public class EnderBlockEntity extends BlockEntity {
         }
     }
 
-    @UseOnly(LogicalSide.CLIENT)
+    
     public void clientHandleBufferSync(FriendlyByteBuf buf) {
         for (int amount = buf.readInt(); amount > 0; amount--) {
             int index = buf.readInt();
@@ -197,7 +197,7 @@ public class EnderBlockEntity extends BlockEntity {
         }
     }
 
-    @UseOnly(LogicalSide.SERVER)
+    
     public void serverHandleBufferChange(FriendlyByteBuf buf) {
         int index = -1;
         try {

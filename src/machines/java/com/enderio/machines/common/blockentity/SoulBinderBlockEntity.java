@@ -50,7 +50,7 @@ public class SoulBinderBlockEntity extends PoweredMachineBlockEntity {
     public static final MultiSlotAccess OUTPUT = new MultiSlotAccess();
     private final SoulBindingRecipe.Container fakeContainer = new SoulBindingRecipe.Container(getInventoryNN(), () -> Integer.MAX_VALUE);
     @Nullable private SoulBindingRecipe recipe;
-    @UseOnly(LogicalSide.CLIENT) private int clientExp = 0;
+     private int clientExp = 0;
 
     private final CraftingMachineTaskHost<SoulBindingRecipe, SoulBindingRecipe.Container> craftingTaskHost;
 
@@ -121,7 +121,7 @@ public class SoulBinderBlockEntity extends PoweredMachineBlockEntity {
 
     // endregion
 
-    @UseOnly(LogicalSide.CLIENT)
+    
     public int getClientExp() {
         return clientExp;
     }

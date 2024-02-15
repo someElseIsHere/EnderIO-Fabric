@@ -18,6 +18,10 @@ repositories {
     maven { url = "https://modmaven.dev" }
 }
 
+loom {
+    accessWidenerPath = file("src/main/resources/enderio.accesswidener")
+}
+
 def subsets = [
         'conduits',
         'machines',
@@ -25,16 +29,22 @@ def subsets = [
 ]
 
 sourceSets {
+    fabric {
+        compileClasspath += sourceSets.main.compileClasspath
+    }
     api {
         compileClasspath += sourceSets.main.compileClasspath
+        compileClasspath += sourceSets.fabric.output
     }
     core {
         compileClasspath += sourceSets.main.compileClasspath
         compileClasspath += sourceSets.api.compileClasspath
+        compileClasspath += sourceSets.api.output
     }
     main {
         compileClasspath += sourceSets.api.output
         compileClasspath += sourceSets.core.output
+        compileClasspath += sourceSets.fabric.output
         ext.refMap = "mixins.enderio.refmap.json"
         resources { srcDir 'src/generated/resources' }
     }

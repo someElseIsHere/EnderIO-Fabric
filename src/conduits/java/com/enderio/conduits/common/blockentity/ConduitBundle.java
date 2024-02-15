@@ -412,7 +412,7 @@ public final class ConduitBundle implements INBTSerializable<CompoundTag> {
         dataVersion++;
     }
 
-    @UseOnly(LogicalSide.CLIENT)
+    
     public ConduitBundle deepCopy() {
         var bundle = new ConduitBundle(() -> {}, pos);
         bundle.types.addAll(types);

@@ -11,7 +11,7 @@ import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.util.thread.EffectiveSide;
-import net.minecraftforge.server.ServerLifecycleHooks;
+import net.pseudoforge.server.ServerLifecycleHooks;
 
 import java.util.HashMap;
 import java.util.List;

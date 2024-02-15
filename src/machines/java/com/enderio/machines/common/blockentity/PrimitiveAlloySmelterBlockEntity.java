@@ -40,7 +40,7 @@ public class PrimitiveAlloySmelterBlockEntity extends AlloySmelterBlockEntity {
     public static final SingleSlotAccess FUEL = new SingleSlotAccess();
     public static final MultiSlotAccess INPUTS = new MultiSlotAccess();
     public static final SingleSlotAccess OUTPUT = new SingleSlotAccess();
-    @UseOnly(LogicalSide.CLIENT)
+    
     private float clientBurnProgress;
 
     public PrimitiveAlloySmelterBlockEntity(BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState) {

@@ -42,7 +42,7 @@ public class StirlingGeneratorBlockEntity extends PoweredMachineBlockEntity {
     private int burnTime;
     private int burnDuration;
 
-    @UseOnly(LogicalSide.CLIENT)
+    
     private float clientBurnProgress;
 
     public StirlingGeneratorBlockEntity(BlockEntityType<?> type, BlockPos worldPosition,

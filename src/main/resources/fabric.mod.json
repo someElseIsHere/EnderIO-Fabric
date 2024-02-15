@@ -1,0 +1,44 @@
+{
+    "schemaVersion": 1,
+    "id": "enderio",
+    "version": "${version}",
+    "name": "Ender IO",
+    "description": "Compact conduits, painted things and all sorts of stuff and bling.",
+    "authors": [
+        "CrazyPants",
+        "tterrag",
+        "HenryLoenwind",
+        "MatthiasM",
+        "CyanideX",
+        "EpicSquid",
+        "Rover656",
+        "HypherionSA",
+        "agnor99",
+        "Ferri_Arnus",
+        "mystchonky",
+        "thePlaceholder"
+    ],
+    "contact": {
+        "homepage": "http://enderio.com/",
+        "sources": "https://github.com/Team-EnderIO/EnderIO"
+    },
+    "license": "CC0",
+    "icon": "assets/enderio/icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "com.enderio.EnderIO",
+            "net.pseudoforge.PseudoForge"
+        ]
+    },
+    "mixins": [
+        "mixins.enderio.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.15.6",
+        "minecraft": "~1.20.1",
+        "java": ">=17",
+        "fabric-api": "*"
+    },
+    "accessWidener" : "enderio.accesswidener"
+}

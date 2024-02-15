@@ -75,7 +75,7 @@ public interface IExtendedConduitData<T extends IExtendedConduitData<T>> extends
         return new CompoundTag();
     }
 
-    @UseOnly(LogicalSide.CLIENT)
+    
     default T deepCopy() {
         return cast();
     }
